@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "templates",
+			"path": "../../ColumbiaTVHub/templates"
+		},
+		{
+			"name": "ColumbiaTVHub",
+			"path": "."
+		},
+		{
+			"name": "documentation",
+			"path": "../../ColumbiaTVHub/documentation"
+		},
+		{
+			"name": "static",
+			"path": "../../ColumbiaTVHub/static"
+		}
+	],
+	"settings": {}
+}

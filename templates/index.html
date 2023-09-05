@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shorcut icon" href="/static/favicon.ico"/>
+    <title>Web Scraper and Weather</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+</head>
+<body>
+    <div class="weather-section">
+        <div class="date-time-section">
+            <h1>Columbia, Missouri</h1>
+            <h1 id="date-time"></h1>
+        </div>
+        <p>Temperature: {{ weather[0]["Temperature"] }}</p>
+        <p>Humidity: {{ weather[1]["Humidity"] }}</p>
+        <p>Condition: {{ weather[2]["Weather Description"] }}</p>
+        <!-- Display Weather Icon based on Weather Description -->
+        {% if weather[2]["Weather Description"].lower() == "clear sky" %}
+            <img src="{{ url_for('static', filename='images/weather_icons/sunny.svg') }}" alt="Sunny">
+        {% elif weather[2]["Weather Description"].lower() in ["few clouds", "scattered clouds", "broken clouds"] %}
+            <img src="{{ url_for('static', filename='images/weather_icons/cloudy.svg') }}" alt="Cloudy">
+        {% elif weather[2]["Weather Description"].lower() in ["shower rain", "rain", "mist"] %}
+            <img src="{{ url_for('static', filename='images/weather_icons/rainy.svg') }}" alt="Rainy">
+        {% elif weather[2]["Weather Description"].lower() == "thunderstorm" %}
+            <img src="{{ url_for('static', filename='images/weather_icons/thunder.svg') }}" alt="thunderstorm">
+        {% else %}
+            <p>No weather icon available for this description.</p>
+        {% endif %}
+    </div>
+    <div class="news-section">
+        <ul>
+            <h1>News: {{data[0]["Headliner"]}}</h1>
+            <h3>1. {{data[1]["Sub-Headline 1"]}}</h3>
+            <h3>2. {{data[2]["Sub-Headline 2"]}}</h3>
+            <h3>3. {{data[3]["Sub-Headline 3"]}}</h3>
+            <h3>4. {{data[4]["Sub-Headline 4"]}}</h3>
+        </ul>
+    </div>
+    <script>
+        // JavaScript code to display date and time
+        function updateDateTime() {
+            var dateTimeElement = document.getElementById("date-time");
+            var currentDate = new Date();
+            var dateTimeString = currentDate.toLocaleString();
+            dateTimeElement.innerHTML = dateTimeString;
+        }
+
+        // Update the date and time immediately and refresh every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000); // Refresh every 1000 milliseconds (1 second)
+    </script>
+    <div class="note">
+        For more information about this site, please visit <a href="https://github.com/kyle">Kyle's GitHub</a>
+    </div>
+</body>
+</html>
