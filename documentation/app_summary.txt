@@ -6,3 +6,5 @@ python web scraping library. This allowed me to parse through the html elements 
 I used the openweathermap API. Originally, I tried to build a GUI with python's tkinter library, but it was much easier to display 
 the data on a basic HTML/CSS webpage. "openScript.py" is to be ran at the same time as app.py in order to open the webpage at 7am and
 close the webpage at 9pm. 
+
+Video demonstration: https://youtube.com/shorts/kuPyDRtRveA?
