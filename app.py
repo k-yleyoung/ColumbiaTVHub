@@ -15,7 +15,7 @@ def scrape_text():
     # Web scraping
 
     html_text = requests.get('https://www.columbiatribune.com/news/').text
-    
+
     soup = BeautifulSoup(html_text, 'lxml')
 
     headline = soup.find('a', class_ = 'gnt_m_he')
@@ -87,7 +87,7 @@ def get_local_weather():
     ]
     # Return the weather information
 
-    
+
     return weather_data
 
 # Function to update data periodically
@@ -118,4 +118,4 @@ if __name__ == '__main__':
     data_update_thread = threading.Thread(target=update_data_periodically)
     data_update_thread.daemon = True
     data_update_thread.start()
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=8080)

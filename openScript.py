@@ -3,7 +3,7 @@ import subprocess
 import time
 
 # Define the URL of the webpage you want to display
-webpage_url = "http://your-website.com"
+webpage_url = "http://0.0.0.0:8080/"
 
 # Set the start and end times (24-hour format)
 start_time = "07:00"
